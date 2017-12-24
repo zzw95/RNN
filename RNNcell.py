@@ -75,7 +75,7 @@ class LSTMcell(object):
         i = tf.sigmoid(self.Slice(gates, 1))
         # cal current cell
         c = tf.tanh(self.Slice(gates, 2))
-        cur_cell = prev_hidden*f + i*c
+        cur_cell = prev_cell*f + i*c
         # cal current hidden
         o = tf.sigmoid(self.Slice(gates, 3))
         cur_hidden = tf.tanh(cur_cell)*o
